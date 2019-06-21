@@ -1,0 +1,9 @@
+/.idea
+/platforms
+/plugins
+/node_modules
+/package.json
+/package-lock.json
+/manifest
+/www/manifest
+/www/cordova.js
