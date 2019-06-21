@@ -16,8 +16,10 @@ var app = {
         }
 
         function success( status ) {
-            document.getElementById('error').innerHTML += '<div>Yes OH :D </div>';
-            document.getElementById('error').innerHTML += '<div>'+status+'</div>';
+
+            for (var i in status) {
+                document.getElementById('error').innerHTML += '<div>'+i+':'+status[i]+'</div>';
+            }
 
             navigator.geolocation.watchPosition(function(position) {
                     document.getElementById('lat').innerHTML = position.coords.latitude;
