@@ -17,11 +17,7 @@ var app = {
 
         function success( status ) {
             document.getElementById('error').innerHTML += '<div>Yes OH :D </div>';
-            if( !status.hasPermission ) {
-                error();
-                return;
-            }
-            document.getElementById('error').innerHTML += '<div>Yes :D </div>';
+            document.getElementById('error').innerHTML += '<div>'+status+'</div>';
 
             navigator.geolocation.watchPosition(function(position) {
                     document.getElementById('lat').innerHTML = position.coords.latitude;
