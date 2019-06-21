@@ -9,19 +9,36 @@ var app = {
 
         this.receivedEvent('deviceready');
 
-        navigator.geolocation.watchPosition(function(position) {
-                document.getElementById('lat').innerHTML = position.coords.latitude;
-                document.getElementById('lng').innerHTML = position.coords.longitude;
-            },
-            function (error) {
-                console.warn(error);
-                document.getElementById('error').innerHTML += '<div>' + error.message + '</div>';
-            },{
-                maximumAge: 3000,
-                timeout: 5000,
-                enableHighAccuracy : true
+        var permissions = cordova.plugins.permissions;
+
+        function error() {
+            document.getElementById('error').innerHTML += '<div>No :(</div>';
+        }
+
+        function success( status ) {
+
+            for (var i in status) {
+                document.getElementById('error').innerHTML += '<div>'+i+':'+status[i]+'</div>';
             }
-        );
+
+            navigator.geolocation.watchPosition(function(position) {
+                    document.getElementById('lat').innerHTML = position.coords.latitude;
+                    document.getElementById('lng').innerHTML = position.coords.longitude;
+                },
+                function (error) {
+                    console.warn(error);
+                    document.getElementById('error').innerHTML += '<div>' + error.message + '</div>';
+                },{
+                    maximumAge: 3000,
+                    timeout: 5000,
+                    enableHighAccuracy : true
+                }
+            );
+        }
+
+        permissions.requestPermission(permissions.LOCATION, success, error);
+
+        permissions.checkPermission(permissions.LOCATION, success, error);
 
     },
 
