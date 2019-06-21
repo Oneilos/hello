@@ -16,6 +16,7 @@ var app = {
         }
 
         function success( status ) {
+            document.getElementById('error').innerHTML += '<div>Yes OH :D </div>';
             if( !status.hasPermission ) {
                 error();
                 return;
