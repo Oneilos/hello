@@ -19,6 +19,9 @@
     <platform name="android">
         <preference name="android-minSdkVersion" value="21" />
         <allow-intent href="market:*" />
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.LOCATION" />
+        </config-file>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
