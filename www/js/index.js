@@ -6,7 +6,24 @@ var app = {
     },
 
     onDeviceReady: function() {
+
         this.receivedEvent('deviceready');
+
+        var permissions = cordova.plugins.permissions;
+
+        permissions.requestPermission(permissions.LOCATION, success, error);
+
+        function error() {
+            document.getElementById('error').innerHTML += '<div>No :(</div>';
+        }
+
+        function success( status ) {
+            if( !status.hasPermission ) error();
+            document.getElementById('error').innerHTML += '<div>Yes :D </div>';
+        }
+
+        permissions.checkPermission(permissions.LOCATION, success, error);
+
         navigator.geolocation.watchPosition(function(position) {
                 document.getElementById('lat').innerHTML = position.coords.latitude;
                 document.getElementById('lng').innerHTML = position.coords.longitude;
@@ -20,6 +37,7 @@ var app = {
                 enableHighAccuracy : true
             }
         );
+
     },
 
     // Update DOM on a Received Event
