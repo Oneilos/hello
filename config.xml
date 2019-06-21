@@ -23,8 +23,10 @@
     <platform name="android">
         <preference name="android-minSdkVersion" value="26" />
         <allow-intent href="market:*" />
-        <config-file target="AndroidManifest.xml" parent="/*">
-            <uses-permission android:name="android.permission.LOCATION" />
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
         </config-file>
     </platform>
     <platform name="ios">
