@@ -19,14 +19,17 @@
 var app = {
     // Application Constructor
     initialize: function() {
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            document.getElementById('error').innerHTML +=
+                '<div>' +
+                    '<div>' + msg + '</div>' +
+                    '<div>' + error + '</div>' +
+                '</div>';
+        };
         document.addEventListener('DOMContentLoaded', this.onDeviceReady.bind(this), false);
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
 
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
         navigator.geolocation.watchPosition(function(position) {
