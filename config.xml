@@ -4,21 +4,20 @@
         xmlns:gap="http://phonegap.com/ns/1.0"
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
 
-    <name>HelloWorld</name>
+    <name>WAY-D</name>
 
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        The WAYNIUM Drivers app.
     </description>
 
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="support@waynium.com" href="http://waynium.com">
+        WAYNIUM
     </author>
 
     <preference name="phonegap-version" value="cli-8.0.0" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="fullscreen" value="true" />
     <content src="index.html" />
-
 
     <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
@@ -27,7 +26,15 @@
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-android-permissions" spec="1" />
     <plugin name="cordova-plugin-geolocation" spec="~4">
-        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="This app uses your location for maps." />
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="This app always requires location tracking to inform passengers of your position" />
+    </plugin>
+    <plugin name="@mauron85/cordova-plugin-background-geolocation@~3.0.3">
+        <variable name="GOOGLE_PLAY_SERVICES_VERSION" value="11+" />
+        <variable name="ANDROID_SUPPORT_LIBRARY_VERSION" value="24+" />
+        <variable name="ICON" value="@mipmap/icon" />
+        <variable name="SMALL_ICON" value="@mipmap/icon" />
+        <variable name="ALWAYS_USAGE_DESCRIPTION" value="This app always requires location tracking to inform passengers of your position" />
+        <variable name="MOTION_USAGE_DESCRIPTION" value="This app requires motion detection" />
     </plugin>
 
     <access origin="*" />
