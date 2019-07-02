@@ -34,6 +34,20 @@ var app = {
                 );
 
             } else {
+
+                geoloc = navigator.geolocation.watchPosition(function(position) {
+                        document.getElementById('lat').innerHTML = position.coords.latitude;
+                        document.getElementById('lng').innerHTML = position.coords.longitude;
+                    },
+                    function (error) {
+                        console.warn(error);
+                        document.getElementById('error').innerHTML += '<div>' + error.message + '</div>';
+                    },{
+                        maximumAge: 3000,
+                        timeout: 5000,
+                        enableHighAccuracy : true
+                    }
+                );
                 document.getElementById('error').innerHTML += '<div>Permission denied</div>';
             }
         }
