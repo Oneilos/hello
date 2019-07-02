@@ -34,7 +34,7 @@ var app = {
                 );
 
             } else {
-                document.getElementById('error').innerHTML += '<div>Permission refusée</div>';
+                document.getElementById('error').innerHTML += '<div>Permission denied</div>';
             }
         }
 
