@@ -22,7 +22,7 @@ var app = {
                 document.getElementById('error').innerHTML += '<div>'+i+':'+status[i]+'</div>';
             }
 
-            if (status['HASPERMISSION'] && !geoloc) {
+            if (status.HASPERMISSION && !geoloc) {
 
                 geoloc = navigator.geolocation.watchPosition(function(position) {
                         document.getElementById('lat').innerHTML = position.coords.latitude;
@@ -46,11 +46,13 @@ var app = {
             permissions.ACCESS_FINE_LOCATION,       // API LVL 1
             permissions.ACCESS_COARSE_LOCATION,     // API LVL 1
             permissions.ACCESS_BACKGROUND_LOCATION  // API LVL 29
-        ], success, error);
+        ], function () {
 
-        permissions.checkPermission(permissions.ACCESS_FINE_LOCATION, success, error);
-        permissions.checkPermission(permissions.ACCESS_COARSE_LOCATION, success, error);
-        permissions.checkPermission(permissions.ACCESS_BACKGROUND_LOCATION, success, error);
+            permissions.checkPermission(permissions.ACCESS_FINE_LOCATION, success, error);
+            permissions.checkPermission(permissions.ACCESS_COARSE_LOCATION, success, error);
+            permissions.checkPermission(permissions.ACCESS_BACKGROUND_LOCATION, success, error);
+
+        }, error);
 
     },
 
