@@ -49,6 +49,7 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+
         <plugin name="@mauron85/cordova-plugin-background-geolocation@~3.0.3">
             <variable name="GOOGLE_PLAY_SERVICES_VERSION" value="11+" />
             <variable name="ANDROID_SUPPORT_LIBRARY_VERSION" value="24+" />
@@ -57,6 +58,16 @@
             <variable name="ALWAYS_USAGE_DESCRIPTION" value="This app always requires location tracking to inform passengers of your position" />
             <variable name="MOTION_USAGE_DESCRIPTION" value="This app requires motion detection" />
         </plugin>
+
+        <edit-config target="NSLocationAlwaysAndWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+            <string>This app always requires location tracking to inform passengers of your position</string>
+        </edit-config>
+        <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+            <string>This app always requires location tracking to inform passengers of your position</string>
+        </edit-config>
+        <edit-config target="NSLocationAlwaysUsageDescription" file="*-Info.plist" mode="merge">
+            <string>This app always requires location tracking to inform passengers of your position</string>
+        </edit-config>
     </platform>
 
 </widget>
