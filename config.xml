@@ -28,14 +28,6 @@
     <plugin name="cordova-plugin-geolocation" spec="~4">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="This app always requires location tracking to inform passengers of your position" />
     </plugin>
-    <plugin name="@mauron85/cordova-plugin-background-geolocation@~3.0.3">
-        <variable name="GOOGLE_PLAY_SERVICES_VERSION" value="11+" />
-        <variable name="ANDROID_SUPPORT_LIBRARY_VERSION" value="24+" />
-        <variable name="ICON" value="@mipmap/icon" />
-        <variable name="SMALL_ICON" value="@mipmap/icon" />
-        <variable name="ALWAYS_USAGE_DESCRIPTION" value="This app always requires location tracking to inform passengers of your position" />
-        <variable name="MOTION_USAGE_DESCRIPTION" value="This app requires motion detection" />
-    </plugin>
 
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -57,6 +49,14 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+        <plugin name="@mauron85/cordova-plugin-background-geolocation@~3.0.3">
+            <variable name="GOOGLE_PLAY_SERVICES_VERSION" value="11+" />
+            <variable name="ANDROID_SUPPORT_LIBRARY_VERSION" value="24+" />
+            <variable name="ICON" value="@mipmap/icon" />
+            <variable name="SMALL_ICON" value="@mipmap/icon" />
+            <variable name="ALWAYS_USAGE_DESCRIPTION" value="This app always requires location tracking to inform passengers of your position" />
+            <variable name="MOTION_USAGE_DESCRIPTION" value="This app requires motion detection" />
+        </plugin>
     </platform>
 
 </widget>
