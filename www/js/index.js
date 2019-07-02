@@ -55,13 +55,13 @@ var app = {
         //permissions.requestPermission(permissions.LOCATION, success, error);
         permissions.requestPermissions([
             permissions.ACCESS_FINE_LOCATION,       // API LVL 1
-            permissions.ACCESS_COARSE_LOCATION,     // API LVL 1
-            permissions.ACCESS_BACKGROUND_LOCATION  // API LVL 29
+            permissions.ACCESS_COARSE_LOCATION     // API LVL 1
+            //permissions.ACCESS_BACKGROUND_LOCATION  // API LVL 29
         ], function () {
 
             permissions.checkPermission(permissions.ACCESS_FINE_LOCATION, success, error);
             permissions.checkPermission(permissions.ACCESS_COARSE_LOCATION, success, error);
-            permissions.checkPermission(permissions.ACCESS_BACKGROUND_LOCATION, success, error);
+            //permissions.checkPermission(permissions.ACCESS_BACKGROUND_LOCATION, success, error);
 
         }, error);
 
