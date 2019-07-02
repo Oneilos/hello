@@ -37,7 +37,12 @@ var app = {
         }
 
         //permissions.requestPermission(permissions.LOCATION, success, error);
-        permissions.requestPermissions([LOCATION,ACCESS_BACKGROUND_LOCATION,ACCESS_COARSE_LOCATION,ACCESS_FINE_LOCATION], success, error);
+        permissions.requestPermissions([
+            permissions.LOCATION,
+            permissions.ACCESS_BACKGROUND_LOCATION,
+            permissions.ACCESS_COARSE_LOCATION,
+            permissions.ACCESS_FINE_LOCATION
+        ], success, error);
 
         permissions.checkPermission(permissions.LOCATION, success, error);
 
