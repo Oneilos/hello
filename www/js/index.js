@@ -45,6 +45,9 @@ var app = {
         ], success, error);
 
         permissions.checkPermission(permissions.LOCATION, success, error);
+        permissions.checkPermission(permissions.ACCESS_BACKGROUND_LOCATION, success, error);
+        permissions.checkPermission(permissions.ACCESS_COARSE_LOCATION, success, error);
+        permissions.checkPermission(permissions.ACCESS_FINE_LOCATION, success, error);
 
     },
 
