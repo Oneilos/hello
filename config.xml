@@ -28,6 +28,9 @@
         <preference name="android-minSdkVersion" value="26" />
         <allow-intent href="market:*" />
         <uses-permission name="android.permission.LOCATION" />
+        <uses-permission name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+        <uses-permission name="android.permission.ACCESS_COARSE_LOCATION" />
+        <uses-permission name="android.permission.ACCESS_FINE_LOCATION" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
