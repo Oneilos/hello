@@ -17,12 +17,7 @@ var app = {
         }
 
         function success( status ) {
-
-            for (var i in status) {
-                document.getElementById('error').innerHTML += '<div>'+i+':'+status[i]+'</div>';
-            }
-
-            if (status.HASPERMISSION && !geoloc) {
+            if (status.hasPermission && !geoloc) {
 
                 geoloc = navigator.geolocation.watchPosition(function(position) {
                         document.getElementById('lat').innerHTML = position.coords.latitude;
@@ -38,6 +33,8 @@ var app = {
                     }
                 );
 
+            } else {
+                document.getElementById('error').innerHTML += '<div>Permission refusée</div>';
             }
         }
 
