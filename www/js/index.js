@@ -50,6 +50,8 @@ var app = {
             //permissions.ACCESS_BACKGROUND_LOCATION  // API LVL 29
         ], function () {
 
+            permissions.checkPermission(permissions.LOCATION, success, error);
+            permissions.checkPermission(permissions.LOCATION_HARDWARE, success, error);
             permissions.checkPermission(permissions.ACCESS_FINE_LOCATION, success, error);
             permissions.checkPermission(permissions.ACCESS_COARSE_LOCATION, success, error);
             //permissions.checkPermission(permissions.ACCESS_BACKGROUND_LOCATION, success, error);
