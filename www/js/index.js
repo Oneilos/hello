@@ -10,6 +10,7 @@ var app = {
         this.receivedEvent('deviceready');
 
         var permissions = cordova.plugins.permissions;
+        var geoloc = null;
 
         function error() {
             document.getElementById('error').innerHTML += '<div>No :(</div>';
@@ -21,31 +22,35 @@ var app = {
                 document.getElementById('error').innerHTML += '<div>'+i+':'+status[i]+'</div>';
             }
 
-            navigator.geolocation.watchPosition(function(position) {
-                    document.getElementById('lat').innerHTML = position.coords.latitude;
-                    document.getElementById('lng').innerHTML = position.coords.longitude;
-                },
-                function (error) {
-                    console.warn(error);
-                    document.getElementById('error').innerHTML += '<div>' + error.message + '</div>';
-                },{
-                    maximumAge: 3000,
-                    timeout: 5000,
-                    enableHighAccuracy : true
-                }
-            );
+            if (status['HASPERMISSION'] && !geoloc) {
+
+                geoloc = navigator.geolocation.watchPosition(function(position) {
+                        document.getElementById('lat').innerHTML = position.coords.latitude;
+                        document.getElementById('lng').innerHTML = position.coords.longitude;
+                    },
+                    function (error) {
+                        console.warn(error);
+                        document.getElementById('error').innerHTML += '<div>' + error.message + '</div>';
+                    },{
+                        maximumAge: 3000,
+                        timeout: 5000,
+                        enableHighAccuracy : true
+                    }
+                );
+
+            }
         }
 
         //permissions.requestPermission(permissions.LOCATION, success, error);
         permissions.requestPermissions([
-            permissions.ACCESS_BACKGROUND_LOCATION,
-            permissions.ACCESS_COARSE_LOCATION,
-            permissions.ACCESS_FINE_LOCATION
+            permissions.ACCESS_FINE_LOCATION,       // API LVL 1
+            permissions.ACCESS_COARSE_LOCATION,     // API LVL 1
+            permissions.ACCESS_BACKGROUND_LOCATION  // API LVL 29
         ], success, error);
 
-        permissions.checkPermission(permissions.ACCESS_BACKGROUND_LOCATION, success, error);
-        permissions.checkPermission(permissions.ACCESS_COARSE_LOCATION, success, error);
         permissions.checkPermission(permissions.ACCESS_FINE_LOCATION, success, error);
+        permissions.checkPermission(permissions.ACCESS_COARSE_LOCATION, success, error);
+        permissions.checkPermission(permissions.ACCESS_BACKGROUND_LOCATION, success, error);
 
     },
 
