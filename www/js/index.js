@@ -54,6 +54,7 @@ var app = {
 
         //permissions.requestPermission(permissions.LOCATION, success, error);
         permissions.requestPermissions([
+            permissions.LOCATION,       // API LVL 18
             permissions.LOCATION_HARDWARE,       // API LVL 18
             permissions.ACCESS_FINE_LOCATION,       // API LVL 1
             permissions.ACCESS_COARSE_LOCATION     // API LVL 1
