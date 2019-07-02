@@ -43,19 +43,13 @@ var app = {
 
         //permissions.requestPermission(permissions.LOCATION, success, error);
         permissions.requestPermissions([
-            permissions.LOCATION,       // API LVL 18
-            permissions.LOCATION_HARDWARE,       // API LVL 18
             permissions.ACCESS_FINE_LOCATION,       // API LVL 1
             permissions.ACCESS_COARSE_LOCATION     // API LVL 1
-            //permissions.ACCESS_BACKGROUND_LOCATION  // API LVL 29
+            permissions.ACCESS_BACKGROUND_LOCATION  // API LVL 29
         ], function () {
-
-            permissions.checkPermission(permissions.LOCATION, success, error);
-            permissions.checkPermission(permissions.LOCATION_HARDWARE, success, error);
             permissions.checkPermission(permissions.ACCESS_FINE_LOCATION, success, error);
             permissions.checkPermission(permissions.ACCESS_COARSE_LOCATION, success, error);
-            //permissions.checkPermission(permissions.ACCESS_BACKGROUND_LOCATION, success, error);
-
+            permissions.checkPermission(permissions.ACCESS_BACKGROUND_LOCATION, success, error);
         }, error);
 
     },
